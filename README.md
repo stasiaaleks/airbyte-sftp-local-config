@@ -1,6 +1,6 @@
 # Local SFTP → Airbyte → Postgres lab
 
-Monorepo for the **laptop demo** stack:
+Demo monorepo for the **local development and testing** stack:
 
 **Juju/LXD SFTP → Airbyte OSS (kind) → destination Postgres**
 
