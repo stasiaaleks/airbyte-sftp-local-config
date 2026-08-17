@@ -1,0 +1,14 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfplan
+
+# Local variable files (terraform.tfvars.example is checked in)
+*.tfvars
+*.tfvars.json
+
+# Kubeconfig written by the kind provider
+terraform/kubeconfig

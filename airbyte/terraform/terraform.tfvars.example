@@ -1,0 +1,13 @@
+cluster_name  = "airbyte-local"
+namespace     = "airbyte"
+chart_version = "1.8.5"
+
+# Keep 8000 unless something else already listens on it: the dev environment of
+# connectors/environments/dev hardcodes http://localhost:8000.
+host_port = 8000
+
+# Dedicated Postgres used as an Airbyte sync destination (not the metadata DB).
+# dest_postgres_service_name = "airbyte-dest-postgres"
+# dest_postgres_database     = "airbyte_dest"
+# dest_postgres_username     = "airbyte"
+# dest_postgres_password     = "airbyte-local-dest"

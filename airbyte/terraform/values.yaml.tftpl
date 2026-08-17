@@ -1,0 +1,22 @@
+global:
+  edition: community
+
+  # Local development instance: the public API must be reachable without
+  # credentials, because connectors/environments/dev
+  # configures the provider with a bare server_url and no client_id/secret.
+  # The instance is only bound to loopback for this reason.
+  auth:
+    enabled: false
+
+# Bundled dependencies: no external database or object store to manage.
+postgresql:
+  enabled: true
+
+minio:
+  resources:
+    requests:
+      memory: ${minio_memory_request}
+      cpu: ${minio_cpu_request}
+    limits:
+      memory: 2Gi
+      cpu: 300m

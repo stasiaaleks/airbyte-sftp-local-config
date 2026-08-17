@@ -1,0 +1,15 @@
+# Prefer sourcing env vars from the helper scripts instead of committing secrets:
+#
+#   eval "$(../../../sftp/scripts/export-airbyte-env.sh)"
+#   eval "$(cd ../../../airbyte/terraform && terraform output -raw export_dest_postgres_env_command)"
+#
+# Required if not exported:
+# SFTP_HOST = "10.60.7.x"
+
+# Optional overrides
+# workspace_id           = "e183f6c5-26ae-4be4-8ca4-1b83f0d3343e"
+# sftp_private_key_path  = "~/.ssh/sftpuser"          # RSA PEM
+# SFTP_USER              = "sftpuser"
+# SFTP_FOLDER_PATH       = "/home/sftpuser/upload"    # absolute landing path
+# DEST_PG_HOST           = "airbyte-dest-postgres.airbyte.svc.cluster.local"
+# DEST_PG_PASSWORD       = "airbyte-local-dest"

@@ -1,0 +1,18 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfplan
+
+# Local variable files (terraform.tfvars.example is checked in)
+*.tfvars
+*.tfvars.json
+
+# Generated SSH key material
+*.pem
+id_ed25519
+id_ed25519.pub
+sftpuser
+sftpuser.pub
