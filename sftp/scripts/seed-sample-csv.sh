@@ -3,7 +3,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-TF_DIR="${ROOT}/terraform"
+TF_DIR="${ROOT}/environments/dev/local-test"
 SAMPLE="${ROOT}/samples/sample.csv"
 
 if [[ ! -f "${SAMPLE}" ]]; then
@@ -18,9 +18,12 @@ fi
 
 HOST="$(terraform -chdir="${TF_DIR}" output -raw sftp_host)"
 USER="$(terraform -chdir="${TF_DIR}" output -raw sftp_user)"
+LANDING="$(terraform -chdir="${TF_DIR}" output -raw sftp_landing_path)"
 KEY="$(terraform -chdir="${TF_DIR}" output -raw private_key_path)"
 
-echo "Uploading ${SAMPLE} to ${USER}@${HOST} as sample.csv"
-printf 'put %s sample.csv\n' "${SAMPLE}" | sftp -i "${KEY}" -oStrictHostKeyChecking=accept-new "${USER}@${HOST}"
+echo "Uploading ${SAMPLE} to ${USER}@${HOST}:${LANDING}/sample.csv"
+printf 'cd %s\nput %s sample.csv\n' "${LANDING}" "${SAMPLE}" |
+  sftp -i "${KEY}" -oStrictHostKeyChecking=accept-new "${USER}@${HOST}"
 echo "Done. Landing contents:"
-printf 'ls -l\n' | sftp -i "${KEY}" -oStrictHostKeyChecking=accept-new "${USER}@${HOST}"
+printf 'cd %s\nls -l\n' "${LANDING}" |
+  sftp -i "${KEY}" -oStrictHostKeyChecking=accept-new "${USER}@${HOST}"

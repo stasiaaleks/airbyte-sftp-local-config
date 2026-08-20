@@ -1,0 +1,13 @@
+# Copy to terraform.tfvars and adjust as needed. All values below are defaults.
+
+# juju_model_name          = "local-sftp"
+# juju_cloud               = "localhost"
+# juju_cloud_region        = "localhost"
+# machine_name             = "local-test-sftp"
+# ubuntu_base              = "ubuntu@24.04"
+# sftp_user                = "sftpuser"
+# sftp_group               = "sftpusers"
+# sftp_root                = "/srv/sftp"
+# directories              = ["uploads", "processed"]
+# sftp_private_key_path    = "~/.ssh/sftp-local-test"
+# juju_ssh_public_key_path = ""

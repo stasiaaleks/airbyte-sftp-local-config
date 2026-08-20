@@ -13,6 +13,10 @@
 **/*secret*
 **/*.pem
 
+# local-only migration notes
+docs/STATE.md
+docs/local-sftp-airbyte-overview.md
+
 # editor
 *.swp
 .idea/

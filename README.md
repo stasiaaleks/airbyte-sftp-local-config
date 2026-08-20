@@ -31,11 +31,11 @@ Docs:
 
 ```bash
 # 1) SFTP
-cd sftp/terraform
+cd sftp/environments/dev/local-test
 terraform init && terraform apply
 
 # 2) Airbyte + dest Postgres
-cd ../../airbyte/terraform
+cd ../../../../airbyte/terraform
 terraform init && terraform apply
 
 # 3) Seed file + export env for connectors
@@ -73,7 +73,7 @@ $(terraform output -raw dest_postgres_psql_command)
 ```bash
 cd connectors/environments/dev && terraform destroy
 cd ../../../airbyte/terraform && terraform destroy
-cd ../../sftp/terraform && terraform destroy
+cd ../../sftp/environments/dev/local-test && terraform destroy
 ```
 
 ## Design notes

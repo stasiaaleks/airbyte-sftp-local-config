@@ -5,7 +5,7 @@ help:
 	@echo "Apply order: sftp-up -> airbyte-up -> seed -> connectors-up -> sync"
 
 sftp-up:
-	cd sftp/terraform && terraform init && terraform apply
+	cd sftp/environments/dev/local-test && terraform init && terraform apply
 
 airbyte-up:
 	cd airbyte/terraform && terraform init && terraform apply
@@ -30,4 +30,4 @@ diagnose:
 down:
 	cd connectors/environments/dev && terraform destroy -auto-approve || true
 	cd airbyte/terraform && terraform destroy -auto-approve || true
-	cd sftp/terraform && terraform destroy -auto-approve || true
+	cd sftp/environments/dev/local-test && terraform destroy -auto-approve || true

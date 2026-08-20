@@ -1,20 +1,25 @@
 output "sftp_host" {
-  description = "Public address of the unit serving SFTP."
+  description = "Public address of the SFTP machine."
   value       = data.external.unit_address.result.address
 }
 
 output "sftp_user" {
   description = "Unix user to authenticate as."
-  value       = var.sftp_user
+  value       = module.sftp.sftp_user
+}
+
+output "sftp_chroot_path" {
+  description = "The chroot directory the user is locked into (host-side path)."
+  value       = module.sftp.chroot_path
 }
 
 output "sftp_landing_path" {
-  description = "Directory clients land in after connecting."
-  value       = local.landing_path
+  description = "Default landing directory the client sees (relative to chroot)."
+  value       = "/${var.directories[0]}"
 }
 
 output "private_key_path" {
-  description = "Path to the generated private key used for authentication."
+  description = "Path to the generated RSA private key used for authentication."
   value       = local_sensitive_file.private_key.filename
 }
 

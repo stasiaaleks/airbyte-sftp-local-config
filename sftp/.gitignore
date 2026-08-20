@@ -14,5 +14,9 @@ crash.*.log
 *.pem
 id_ed25519
 id_ed25519.pub
-sftpuser
-sftpuser.pub
+sftp-local-test
+sftp-local-test.pub
+
+# Docs
+STATE.md
+local-*.md
